@@ -34,7 +34,8 @@ This app is built for **speed on phone**: tap boxes, pick icon options, move to 
 - **Tap any box** to open a quick icon panel (works on the whole seat, not only the title)
 - **First box tap** on flop/turn marks **Leading**
 - Card preview **inside the options panel** (hole + board) so you don’t bounce back to the table
-- River: pick winner, winning combo, then tap **5 cards** on the felt — they lift with animation
+- River: pick winner(s), winning combo, then tap cards on the felt — they lift with animation  
+  (one winner = 5 best cards; **ties** can lift combo cards plus hole cards from each winning box)
 - Compact layout for phones; dealer tray stacks **under** the table on small screens
 
 Nothing is calculated for you. You only select what applies; leave the rest empty.
@@ -60,7 +61,7 @@ Nothing is calculated for you. You only select what applies; leave the rest empt
 
 ### River
 - Winner box(es) + winning combination
-- Select 5 best cards → push up
+- Select winning cards → push up (5 for a single winner; more allowed on ties)
 
 ---
 

@@ -57,8 +57,10 @@ export function AnnounceScript({ state }: Props) {
     lines.push(`Combination: ${r.winningCombo || 'none selected'}`)
     lines.push(
       r.pushedUp
-        ? 'Five best cards are pushed up.'
-        : `Five-card selection: ${r.selectedFive.length}/5`,
+        ? `${r.selectedFive.length} winning cards are pushed up.`
+        : r.winners.length > 1
+          ? `Tie selection: ${r.selectedFive.length} cards (min 5, include each winner’s holes)`
+          : `Five-card selection: ${r.selectedFive.length}/5`,
     )
   }
 

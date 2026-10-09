@@ -67,7 +67,7 @@ export const STAGES: StageMeta[] = [
     id: 'AnnounceRiver',
     label: 'Announce River',
     kind: 'announce',
-    hint: 'Tap winner, then 5 cards on the felt. Confirm to finish.',
+    hint: 'Tap winner(s), then cards on the felt (ties can pick more than 5). Confirm to finish.',
   },
   {
     id: 'HandComplete',

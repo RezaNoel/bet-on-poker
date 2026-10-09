@@ -528,7 +528,10 @@ function RiverBox({
         </TileGrid>
       </Field>
 
-      <p className="inspector-hint">Then tap 5 cards on the felt.</p>
+      <p className="inspector-hint">
+        Then tap cards on the felt. One winner: 5 best. Tie: pick the combo cards plus hole
+        cards from each winning box.
+      </p>
     </>
   )
 }

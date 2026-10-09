@@ -150,6 +150,32 @@ export function cardsForWinnerSelection(state: GameState): Card[] {
   })
 }
 
+/** Single winner: exactly 5. Ties: board + hole cards from every winning box. */
+export function maxWinnerCardSelection(state: GameState): number {
+  const pool = cardsForWinnerSelection(state).length
+  if (state.riverCallouts.winners.length <= 1) return Math.min(5, pool)
+  return pool
+}
+
+export function minWinnerCardSelection(_state: GameState): number {
+  return 5
+}
+
+export function canPushWinnerCards(state: GameState): boolean {
+  const n = state.riverCallouts.selectedFive.length
+  return n >= minWinnerCardSelection(state) && n <= maxWinnerCardSelection(state)
+}
+
+export function winnerSelectionHint(state: GameState): string {
+  const n = state.riverCallouts.selectedFive.length
+  const max = maxWinnerCardSelection(state)
+  const winners = state.riverCallouts.winners.length
+  if (winners > 1) {
+    return `Tie — pick combo + holes from each winner · ${n}/${max}`
+  }
+  return `Tap 5 best cards · ${n}/5`
+}
+
 export function canAdvance(state: GameState): boolean {
   switch (state.stage) {
     case 'DealHole':

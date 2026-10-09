@@ -11,11 +11,13 @@ import {
   autoDealCurrentStreet,
   canAutoDeal,
   canUndoDeal,
+  canPushWinnerCards,
   cardsForWinnerSelection,
   confirmAdvance,
   createInitialState,
   currentDealSlot,
   holeCardsDealt,
+  maxWinnerCardSelection,
   undoDeal,
   type GameState,
 } from './lib/gameState'
@@ -108,17 +110,24 @@ export default function App() {
     if (!allowed.has(cardId)) return
 
     setState((s) => {
+      const max = maxWinnerCardSelection(s)
       const current = s.riverCallouts.selectedFive
       let selectedFive = current.includes(cardId)
         ? current.filter((id) => id !== cardId)
         : [...current, cardId]
-      if (selectedFive.length > 5) selectedFive = selectedFive.slice(-5)
+      if (selectedFive.length > max) {
+        // Keep newest picks within the allowed pool (ties can exceed 5)
+        selectedFive = selectedFive.slice(selectedFive.length - max)
+      }
       return {
         ...s,
         riverCallouts: {
           ...s.riverCallouts,
           selectedFive,
-          pushedUp: selectedFive.length === 5,
+          pushedUp: canPushWinnerCards({
+            ...s,
+            riverCallouts: { ...s.riverCallouts, selectedFive },
+          }),
         },
       }
     })

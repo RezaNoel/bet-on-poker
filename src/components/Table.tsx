@@ -1,5 +1,9 @@
 import { boxMarks } from '../lib/boxMarks'
-import { cardsForWinnerSelection, type GameState } from '../lib/gameState'
+import {
+  cardsForWinnerSelection,
+  winnerSelectionHint,
+  type GameState,
+} from '../lib/gameState'
 import { BOX_IDS, type BoxId } from '../lib/stages'
 import { BoxSeat } from './BoxSeat'
 import { PlayingCard } from './PlayingCard'
@@ -66,8 +70,8 @@ export function Table({ state, activeBox, onBoxClick, onCardClick }: Props) {
         <p className="table-guide">
           {state.stage === 'AnnounceRiver'
             ? cardSelectMode
-              ? `Tap 5 cards · ${state.riverCallouts.selectedFive.length}/5`
-              : 'Tap any box for winner'
+              ? winnerSelectionHint(state)
+              : 'Tap winner box(es) — ties: mark every winner'
             : state.stage === 'AnnounceFlop' || state.stage === 'AnnounceTurn'
               ? 'Tap any box — first is Leading'
               : 'Tap any box for options'}
