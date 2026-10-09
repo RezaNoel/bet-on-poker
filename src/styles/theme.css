@@ -1,0 +1,67 @@
+:root {
+  --felt-deep: #0b3d2e;
+  --felt-mid: #145a43;
+  --felt-light: #1d7356;
+  --felt-edge: #072820;
+  --ink: #f4efe4;
+  --ink-muted: rgba(244, 239, 228, 0.72);
+  --ink-soft: rgba(244, 239, 228, 0.45);
+  --gold: #d4a84b;
+  --gold-bright: #f0c96a;
+  --gold-dim: rgba(212, 168, 75, 0.22);
+  --cream: #f7f1e4;
+  --card-face: #fffdf8;
+  --card-edge: #e7dfd0;
+  --red: #c0392b;
+  --black: #1a1a1a;
+  --danger: #e85d4c;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Sora', 'Segoe UI', sans-serif;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(240, 201, 106, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 80% 100%, rgba(0, 0, 0, 0.35), transparent 50%),
+    linear-gradient(160deg, #061c16 0%, var(--felt-deep) 38%, #0a2f24 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
